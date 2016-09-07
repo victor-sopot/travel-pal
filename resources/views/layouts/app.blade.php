@@ -79,6 +79,32 @@
 
     @yield('content')
 
+    
+        <div class="container-fluid footer-wrap">
+            <footer class="footer">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="footer-box">
+                            <ul class="list-unstyled">
+                                <li><a href="#">Licenses</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="footer-box">
+                            <img class="img-responsive" src="/images/backpack.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="footer-box">
+                            <a href="#">Rover Login</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
     <!-- Scripts -->
     <script src="/js/app.js"></script>
 </body>

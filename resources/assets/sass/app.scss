@@ -7,3 +7,27 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+.footer-wrap {
+	background: url('/images/footer_bg.png');
+	background-repeat: repeat;
+}
+
+.footer .footer-box {
+	padding-top: 30px;
+}
+
+.footer .footer-box img {
+	height:100px;
+	margin: auto;
+	vertical-align: middle;
+}
+
+.footer a {
+	color: $footer-link-color;
+}
+
+.footer a:hover, .footer a:focus {
+	color: $footer-link-hover-color;
+	text-decoration: none;
+}
