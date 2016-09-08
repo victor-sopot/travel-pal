@@ -12,11 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landing');
 });
+
+Route::get('/search', function() {
+	return view('search');
+});
+
+Route::get('/profile', 'UserController@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-// Route::get('/search', 'SearchController');
+Route::get('/bookings', 'Bookings@index');
+Route::get('bookings/create', 'Bookings@create')->name('bookings.create');
+Route::post('bookings', 'Bookings@store');
+Route::delete('/bookings/{booking}', 'Bookings@destroy');

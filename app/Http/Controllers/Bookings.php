@@ -8,6 +8,12 @@ use App\Http\Requests;
 
 class Bookings extends Controller
 {
+    /** Create new instance of the controller **/
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the booking.
      *
@@ -26,7 +32,7 @@ class Bookings extends Controller
      */
     public function create()
     {
-        //
+        return view('bookings.create');
     }
 
     /**

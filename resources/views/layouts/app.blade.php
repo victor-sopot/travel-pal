@@ -42,7 +42,8 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    &nbsp;
+                    <li><a href="{{ url('/search') }}">Find a Rover</a></li>
+                    <li><a href="{{ url('/profile') }}">My Profile</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -54,7 +55,7 @@
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                {{ Auth::user()->first_name }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
@@ -78,33 +79,6 @@
     </nav>
 
     @yield('content')
-
-    
-        <div class="container-fluid footer-wrap">
-            <footer class="footer">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="footer-box">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Licenses</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="footer-box">
-                            <img class="img-responsive" src="/images/backpack.svg" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="footer-box">
-                            <a href="#">Rover Login</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
     <!-- Scripts -->
     <script src="/js/app.js"></script>
 </body>
