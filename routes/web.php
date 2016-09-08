@@ -12,14 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('landing');
+    return view('home');
 });
 
 Route::get('/search', function() {
 	return view('search');
 });
 
-Route::get('/profile', 'UserController@index');
+Route::get('/profile', 'UserController@show');
 
 Auth::routes();
 

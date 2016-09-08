@@ -26,7 +26,7 @@ class UserController extends Controller
         //
     }
 
-    public function show(Auth::user()->id)
+    public function show($id)
     {
 
     }

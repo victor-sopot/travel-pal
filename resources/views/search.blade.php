@@ -12,5 +12,19 @@
             </div><!-- /input-group -->
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Current Available Rovers:</h1>
+            <ul class="list-unstyled" id="rovers">
+                <li>
+                    
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            
+        </div>
+    </div>
 </div>
 @endsection
