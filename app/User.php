@@ -26,4 +26,18 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $appends = 
+    [
+        'isRover'
+    ];
+
+    public function rover() {
+        return $this->hasOne('App\Rover');
+    }
+
+    public function getIsRoverAttribute()
+    {
+        return $this->rover != null;
+    }
 }

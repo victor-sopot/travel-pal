@@ -8,10 +8,10 @@ class Country extends Model
 {
     //
     public function cities() {
-    	return $this->hasMany('City');
+    	return $this->hasMany('App\City');
     }
 
     public function rovers() {
-    	return $this->hasMany('Rover');
+    	return $this->hasMany('App\Rover');
     }
 }
