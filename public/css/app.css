@@ -5766,16 +5766,6 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%; }
-
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 100px; }
-
 .footer-wrap {
   background: url("/images/footer_bg.png");
   background-repeat: repeat; }

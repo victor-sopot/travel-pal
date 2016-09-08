@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class FinallyFixForeignUserid extends Migration
+class CreateTables5 extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,12 @@ class FinallyFixForeignUserid extends Migration
     public function up()
     {
         //
-        Schema::table('rovers', function($table) {
-            $table->integer('user_id')->unsigned()->nullable();
+        Schema::create('bookings', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('rover_id')->unsigned();
+            $table->foreign('rover_id')->references('id')->on('rovers');
         });
     }
 
@@ -27,8 +30,7 @@ class FinallyFixForeignUserid extends Migration
      */
     public function down()
     {
-        Schema::table('rovers', function($table) {
-            $table->dropColumn('user_id');
-        });
+        //
+        Schema::drop('bookings');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTables extends Migration
+class CreateTables3 extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateTables extends Migration
      */
     public function up()
     {
-        Schema::create('countries', function(Blueprint $table) {
+        //
+        Schema::create('rovers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->integer('city_id')->nullable()->unsigned();
+            $table->foreign('city_id')->references('id')->on('cities');
+            $table->string('country_code', 3);
+            $table->string('bio');
+            $table->decimal('rating', 3, 2);
         });
-
-
-        
     }
 
     /**
@@ -29,7 +31,6 @@ class CreateTables extends Migration
      */
     public function down()
     {
-
-        Schema::drop('countries');
+        Schema::drop('rovers');
     }
 }

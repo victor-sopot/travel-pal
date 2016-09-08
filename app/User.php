@@ -32,6 +32,10 @@ class User extends Authenticatable
         'isRover'
     ];
 
+    public function booking() {
+        return $this->hasMany('App\Booking');
+    }
+
     public function rover() {
         return $this->hasOne('App\Rover');
     }
