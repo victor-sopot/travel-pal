@@ -14,4 +14,12 @@ class Rover extends Model
     public function booking() {
     	return $this->belongsTo('App\Booking');
     }
+
+    public function country() {
+    	return $this->belongsTo('App\Country');
+    }
+
+    public function city() {
+    	return $this->belongsTo('App\City');
+    }
 }

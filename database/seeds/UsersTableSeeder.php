@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class BookingsTableSeeder extends Seeder
+class UsersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,7 @@ class BookingsTableSeeder extends Seeder
     public function run()
     {
     	Schema::disableForeignKeyConstraints();
-        DB::table('bookings')->delete();   
-        Schema::enableForeignKeyConstraints();
+     	DB::table('users')->delete();   
+     	Schema::enableForeignKeyConstraints();
     }
 }

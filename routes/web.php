@@ -12,20 +12,23 @@
 */
 
 Route::get('/', function () {
-    return view('home');
-});
+	$pageTitle = "Find A Local";
 
-Route::get('/search', function() {
-	return view('search');
-});
-
-Route::get('/profile', 'UserController@show');
+    return view('home', compact('pageTitle'));
+})->name('Homepage');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/search', function() {
+	$pageTitle = 'Discover Somewhere New';
 
-Route::get('/bookings', 'Bookings@index');
-Route::get('bookings/create', 'Bookings@create')->name('bookings.create');
-Route::post('bookings', 'Bookings@store');
-Route::delete('/bookings/{booking}', 'Bookings@destroy');
+	return view('search', compact('pageTitle'));
+})->middleware('auth');
+
+
+
+Route::get('/profile', 'UserController@index')->middleware('auth');
+Route::get('/home', 'HomeController@index');
+Route::resource('bookings', 'BookingsController');
+Route::resource('users', 'UserController');
+Route::resource('rovers', 'RoverController');

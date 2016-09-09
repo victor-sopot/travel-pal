@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password',
+        'first_name', 'last_name', 'email', 'password', 'country_code'
     ];
 
     /**
@@ -27,17 +27,16 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected $appends = 
-    [
-        'isRover'
-    ];
-
-    public function booking() {
-        return $this->hasMany('App\Booking');
+    public function bookings() {
+        return $this->belongsToMany('App\Booking', 'users_bookings', 'user_id', 'booking_id');
     }
 
     public function rover() {
         return $this->hasOne('App\Rover');
+    }
+
+    public function country() {
+        return $this->belongsTo('App\Country');
     }
 
     public function getIsRoverAttribute()

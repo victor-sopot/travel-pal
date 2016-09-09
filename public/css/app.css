@@ -5766,23 +5766,62 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
-.footer-wrap {
-  background: url("/images/footer_bg.png");
-  background-repeat: repeat; }
+/*
+ * Start Bootstrap - Full Width Pics (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+.image-bg-fluid-height,
+.image-bg-fixed-height {
+  text-align: center;
+  background-size: cover;
+  -o-background-size: cover; }
 
-.footer .footer-box {
-  padding-top: 30px; }
+.image-bg-fluid-height {
+  background: url("/images/stock/travelpic.jpg") no-repeat center center scroll;
+  padding: 100px 0; }
 
-.footer .footer-box img {
-  height: 100px;
-  margin: auto;
-  vertical-align: middle; }
+.image-bg-fixed-height {
+  background: url("/images/stock/travelpic.jpg") no-repeat center center scroll;
+  height: 450px; }
 
-.footer a {
-  color: #C5D0DA; }
+.img-center {
+  margin: 0 auto; }
 
-.footer a:hover, .footer a:focus {
-  color: #FFF;
-  text-decoration: none; }
+section {
+  padding: 75px 0; }
+
+.section-heading {
+  margin: 30px 0;
+  font-size: 4em; }
+
+.section-lead {
+  margin: 30px 0; }
+
+.section-paragraph {
+  margin: 30px 0; }
+
+/** End Bootstrap plugin */
+.navbar {
+  margin-bottom: 0; }
+
+header .pageTitle {
+  padding: 0 0 40px 20px;
+  text-align: left;
+  color: #4E5765;
+  z-index: 2;
+  font-size: 5rem;
+  font-weight: 500;
+  text-shadow: 1px 1px 0px white; }
+
+.content {
+  margin-top: 70px; }
+
+@media (max-width: 768px) {
+  section {
+    padding-top: 25px;
+    padding-bottom: 25px; }
+  .section-heading {
+    font-size: 2em; } }
 
 /*# sourceMappingURL=app.css.map */

@@ -12,22 +12,16 @@ class CountriesTableSeeder extends Seeder
     public function run()
     {
         Schema::disableForeignKeyConstraints();
-    	DB::table('countries')->delete();
+        DB::table('countries')->delete();
  
         $countries = array(
-            ['name' => 'Cyprus', 'country_code' => 'CYP'],
-            ['name' => 'Albania', 'country_code' => 'ALB'],
-            ['name' => 'Algeria', 'country_code' => 'DZA'],
-            ['name' => 'American Samoa', 'country_code' => 'ASM'],
-            ['name' => 'American Samoa', 'country_code' => 'ASM'],
-            ['name' => 'Marshall Islands', 'country_code' => 'MHL'],
-            ['name' => 'Mauritania', 'country_code' => 'MRT'],
-            ['name' => 'Singapore', 'country_code' => 'SGP'],
-            ['name' => 'Singapore', 'country_code' => 'SGP']
+            ['id' => 1, 'name' => 'Cyprus', 'country_code' => 'CYP'],
+            ['id' => 2, 'name' => 'Malta', 'country_code' => 'MLT'],
+            ['id' => 3, 'name' => 'Bulgaria', 'country_code' => 'BGR'],
         );
  
         // Uncomment the below to run the seeder
-        DB::table('countries')->insert($countries);
+        DB::table('countries')->insert($countries);   
         Schema::enableForeignKeyConstraints();
     }
 }

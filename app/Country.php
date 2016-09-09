@@ -14,4 +14,8 @@ class Country extends Model
     public function rovers() {
     	return $this->hasMany('App\Rover');
     }
+
+    public function users() {
+    	return $this->hasMany('App\User');
+    }
 }

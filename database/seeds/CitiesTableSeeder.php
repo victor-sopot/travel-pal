@@ -12,18 +12,18 @@ class CitiesTableSeeder extends Seeder
     public function run()
     {
         Schema::disableForeignKeyConstraints();
-    	DB::table('cities')->delete();
+        DB::table('cities')->delete();
  
         $cities = array(
-            ['name' => 'Nicosia', 'country_id' => '1'],
-            ['name' => 'Albania', 'country_id' => '2'],
-            ['name' => 'Algeria', 'country_id' => '3'],
-            ['name' => 'American Samoa', 'country_id' => '4'],
-            ['name' => 'American Samoa', 'country_id' => '5'],
-            ['name' => 'Marshall Islands', 'country_id' => '6'],
-            ['name' => 'Mauritania', 'country_id' => '7'],
-            ['name' => 'Singapore', 'country_id' => '8'],
-            ['name' => 'Singapore', 'country_id' => '9']
+            ['id' => 1, 'name' => 'Limassol', 'country_id' => 1],
+            ['id' => 2, 'name' => 'Nicosia', 'country_id' => 1],
+            ['id' => 3, 'name' => 'Larnaca', 'country_id' => 1],
+            ['id' => 4, 'name' => 'Valletta', 'country_id' => 2],
+            ['id' => 5, 'name' => 'Birkirkara', 'country_id' => 2],
+            ['id' => 6, 'name' => 'Mosta', 'country_id' => 2],
+            ['id' => 7, 'name' => 'Sofia', 'country_id' => 3],
+            ['id' => 8, 'name' => 'Veliko Tarnovo', 'country_id' => 3],
+            ['id' => 9, 'name' => 'Varna', 'country_id' => 3],
         );
  
         // Uncomment the below to run the seeder

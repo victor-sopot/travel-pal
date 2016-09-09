@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    @yield('gmapsstyle')
 
     <!-- Scripts -->
     <script>
@@ -43,7 +44,9 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/search') }}">Find a Rover</a></li>
+                    @if (Auth::user())
                     <li><a href="{{ url('/profile') }}">My Profile</a></li>
+                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -78,8 +81,14 @@
         </div>
     </nav>
 
-    @yield('content')
+    @yield('brand-image')
+
+    <div class="container">
+        @yield('content')
+    </div>
+
     <!-- Scripts -->
+    @yield('gmaps')
     <script src="/js/app.js"></script>
 </body>
 </html>
