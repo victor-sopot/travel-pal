@@ -1,6 +1,23 @@
+// Rentrovers
+// Adam Sofokleous
+// Laravel
+
+/**
+-Imports
+-Background image
+-Main
+-Navbar
+-Typography
+-Buttons
+-Media Queries
+
+
+/**** Stylesheet Imports ****/ 
+
 
 // Fonts
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url(https://fonts.googleapis.com/css?family=Jura);
 
 // Variables
 @import "variables";
@@ -8,6 +25,7 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+//*** Header Background Imagery ***//
 /*
  * Start Bootstrap - Full Width Pics (http://startbootstrap.com/)
  * Copyright 2013-2016 Start Bootstrap
@@ -37,6 +55,7 @@
 	margin: 0 auto;
 }
 
+//*** Main ***//
 section {
     padding: 75px 0;
 }
@@ -53,12 +72,21 @@ section {
 .section-paragraph {
     margin: 30px 0;
 }
-/** End Bootstrap plugin */
 
+.content, .home-wrap {
+    margin-top: 70px;
+}
+//*** End Main ***//
+
+
+//*** Navbar ***//
 .navbar {
     margin-bottom: 0;
 }
 
+//*** End Navbar ***//
+
+//*** Typography ***//
 header .pageTitle {
     padding: 0 0 40px 20px;
     text-align: left;
@@ -69,9 +97,35 @@ header .pageTitle {
     text-shadow: 1px 1px 0px rgb(255, 255, 255);
 }
 
-.content {
-    margin-top: 70px;
+.dropdown-menu > li > a {
+    padding: 6px 20px;
 }
+
+
+
+//*** End Typography ***//
+
+//*** Buttons ***//
+.btn-callout {
+    transition: 0.1s all;
+    background-color: rgba(139, 195, 74, 0.7);
+    color: #fff;
+    font-weight: 600;
+    border-bottom-width: 3px;
+    border-color: #71a238;
+}
+
+.btn-callout:hover, .btn-callout:focus, .btn-callout.focus {
+    text-decoration: none;
+    background-color: rgba(139, 195, 74, 1);
+    color: white;
+}
+
+.btn-callout:active {
+    color: white;
+}
+
+//*** Media Queries ***//
 
 @media(max-width:768px) {
     section {
