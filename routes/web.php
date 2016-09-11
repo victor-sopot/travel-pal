@@ -13,17 +13,15 @@
 
 Route::group(['middleware' => 'auth'], function() {
 
-	Route::get('/search', function() {
-		return view('search');
-	});
-
 	Route::get('/provider', 'HomeController@provider');
-	
+	Route::post('/search', 'SearchCtrl@country');
 	Route::get('/profile', 'UserController@profile');
 	Route::get('/', 'HomeController@index');
 	Route::resource('bookings', 'BookingsController');
 	Route::resource('users', 'UserController');
 	Route::resource('rovers', 'RoverController');
+	Route::resource('countries.cities', 'CityCtrl');
+	Route::resource('countries', 'CountryCtrl');
 });
 
 

@@ -6,6 +6,7 @@
 -Navbar
 -Typography
 -Buttons
+-Vue elements
 -Media Queries
 
 
@@ -5800,6 +5801,9 @@ button.close {
 .img-center {
   margin: 0 auto; }
 
+.center {
+  text-align: center; }
+
 section {
   padding: 75px 0; }
 
@@ -5830,6 +5834,10 @@ section {
 .dropdown-menu > li > a {
   padding: 6px 20px; }
 
+.slogan h2 {
+  position: relative;
+  top: 90px; }
+
 .btn-callout {
   -webkit-transition: 0.1s all;
   transition: 0.1s all;
@@ -5846,6 +5854,29 @@ section {
 
 .btn-callout:active {
   color: white; }
+
+/* Cyan theme */
+#v-select {
+  background-color: white;
+  width: 100%; }
+
+#v-select .selected-tag {
+  color: #147688;
+  background-color: #d7f3f9;
+  border-color: #91ddec; }
+
+#v-select.dropdown.open .dropdown-toggle,
+#v-select.dropdown.open .dropdown-menu {
+  border-color: #4CC3D9; }
+
+#v-select .active a {
+  background: rgba(50, 50, 50, 0.1);
+  color: #333; }
+
+#v-select.dropdown .highlight a,
+#v-select.dropdown li:hover a {
+  background: #4CC3D9;
+  color: #fff; }
 
 @media (max-width: 768px) {
   section {

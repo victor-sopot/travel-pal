@@ -14,35 +14,28 @@
     </style>
 @endsection
 
-@section('brand-image')
-  <header class="image-bg-fluid-height">
-    <h1 class="pageTitle">Discover Somewhere New</h1>
-
-    <button class="btn btn-primary">Start Searching</button>
-  </header>
-@endsection
-
 @section('content')
-
-    <div class="row content">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="input-group">
-                <input type="text" class="form-control input-lg" placeholder="Search for...">
-                <span class="input-group-btn">
-                    <button class="btn btn-default btn-lg" type="button">Go!</button>
-                </span>
-            </div><!-- /input-group -->
-        </div>
-    </div>
-
+  <div class="container-fluid">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-5">
+            <h3>List of Cities:</h3>
+            <ul id="list-of-cities">
+              <li><a href="#">LCA</a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+            </ul>
+        </div>
+        <div class="col-md-7">
             <h3>Current Available Rovers:</h3>
             <div id="map-container">
                 <div id="map"></div>
             </div>
         </div>
     </div>
+  </div>
 
 @endsection
 

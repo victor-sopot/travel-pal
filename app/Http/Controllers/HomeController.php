@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\City;
 use App\Country;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -25,8 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $countries = Country::take(20)->get();
-        return view('home', compact('countries'));
+        return view('home');
     }
 
     public function provider()
