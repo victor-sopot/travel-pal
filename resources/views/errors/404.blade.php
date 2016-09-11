@@ -2,9 +2,12 @@
 
 @section('content')
 
+<div class="row content">
+	<div class="col-md-12">
+		<h1>You're lost</h1>
+	</div>
+</div>
 
-<p>You're lost </p>
-
-<a href="{{ route('Homepage') }}">Home</a>
+{{-- <a href="{{ route('/home') }}">Home</a> --}}
 
 @endsection

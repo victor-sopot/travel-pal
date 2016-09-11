@@ -83,9 +83,7 @@
 
     @yield('brand-image')
 
-    <div class="container">
-        @yield('content')
-    </div>
+    @yield('content')
 
     <!-- Scripts -->
     @yield('gmaps')

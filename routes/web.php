@@ -11,24 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-	$pageTitle = "Find A Local";
+Route::group(['middleware' => 'auth'], function() {
 
-    return view('home', compact('pageTitle'));
-})->name('Homepage');
+	Route::get('/search', function() {
+		return view('search');
+	});
+
+	Route::get('/provider', 'HomeController@provider');
+	
+	Route::get('/profile', 'UserController@profile');
+	Route::get('/', 'HomeController@index');
+	Route::resource('bookings', 'BookingsController');
+	Route::resource('users', 'UserController');
+	Route::resource('rovers', 'RoverController');
+});
+
+
 
 Auth::routes();
-
-Route::get('/search', function() {
-	$pageTitle = 'Discover Somewhere New';
-
-	return view('search', compact('pageTitle'));
-})->middleware('auth');
-
-
-
-Route::get('/profile', 'UserController@index')->middleware('auth');
-Route::get('/home', 'HomeController@index');
-Route::resource('bookings', 'BookingsController');
-Route::resource('users', 'UserController');
-Route::resource('rovers', 'RoverController');

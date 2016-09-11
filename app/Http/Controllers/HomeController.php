@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Country;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $countries = Country::take(20)->get();
+        return view('home', compact('countries'));
+    }
+
+    public function provider()
+    {
+        $rovers = DB::table('rovers')->join('countries', 'country_id', '=', 'countries.id')->select('rovers.*', 'countries.name')->get();
+        dd($rovers);
     }
 }

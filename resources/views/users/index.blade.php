@@ -5,8 +5,4 @@
 
 <p>hello </p>
 
-{{-- ToDo --}}
-
-{{ $users }}
-
 @endsection

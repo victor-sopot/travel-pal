@@ -16,7 +16,7 @@
 
 @section('brand-image')
   <header class="image-bg-fluid-height">
-    <h1 class="pageTitle">{{ $pageTitle }}</h1>
+    <h1 class="pageTitle">Discover Somewhere New</h1>
 
     <button class="btn btn-primary">Start Searching</button>
   </header>
