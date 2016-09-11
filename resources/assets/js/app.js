@@ -19,5 +19,12 @@ const app = new Vue({
     el: 'body'
 });
 
+Vue.http.options.root = '/root';
+Vue.http.headers.common['Authorization'] = 'Basic YXBpOnBhc3N3b3Jk';
+
+Vue.http.get('/provider').then(function(res){
+	console.log(res);
+});
+
 /* Bootstrap */
 $('.dropdown-toggle').dropdown()

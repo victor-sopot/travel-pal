@@ -32,6 +32,7 @@ class HomeController extends Controller
     public function provider()
     {
         $rovers = DB::table('rovers')->join('countries', 'country_id', '=', 'countries.id')->select('rovers.*', 'countries.name')->get();
-        dd($rovers);
+        // dd($rovers);
+        return $rovers->toJson();
     }
 }
