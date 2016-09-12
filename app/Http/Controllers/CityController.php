@@ -52,8 +52,6 @@ class CityController extends Controller
         $city_id = $id;
         $city = City::find($city_id);
 
-        
-
         return view('search.rovers', compact('city'));
     }
 

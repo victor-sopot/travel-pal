@@ -14,7 +14,7 @@
 Route::group(['middleware' => 'auth'], function() {
 
 	Route::get('/home', 'HomeController@index');
-	Route::get('/provider', 'HomeController@provider');
+	Route::get('api/v1/rovers/{rover}/provider', 'HomeController@provider');
 	Route::post('/search', 'SearchController@country'); // SEARCH
 	Route::get('/profile', 'UserController@profile');
 	Route::get('/', 'HomeController@index');

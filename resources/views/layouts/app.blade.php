@@ -22,8 +22,8 @@
     </script>
 </head>
 <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
             <div class="navbar-header">
 
                 <!-- Collapsed Hamburger -->
@@ -83,11 +83,13 @@
 
     @yield('brand-image')
 
+    @yield('searchbar')
+
     @yield('content')
 
     <!-- Scripts -->
     @yield('gmaps')
-    <script src="https://npmcdn.com/vue-select@latest"></script>
+    {{-- <script src="https://npmcdn.com/vue-select@latest"></script> --}}
     <script src="/js/app.js"></script>
 </body>
 </html>
