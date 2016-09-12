@@ -5,13 +5,13 @@
       <div class="row image-bg-fluid-height">
         <div class="col-md-6 col-md-offset-3">
 
-            <h1 class="pageTitle">Rent a Local</h1>
+            <h1 class="pageTitle">Begin Your Search</h1>
 
             <form action="/search" method="post">
             {{ csrf_field() }}
 
 
-                <select name="country" id="country">
+                <select class="form-control" name="country" id="country">
                     <option value="1">Cyprus</option>
                     <option value="2">Bulgaria</option>
                     <option value="3">Something</option>

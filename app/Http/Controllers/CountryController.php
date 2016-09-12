@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Country;
 
-use App\City;
 use App\Http\Requests;
 
-class CityCtrl extends Controller
+class CountryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,14 +16,8 @@ class CityCtrl extends Controller
      */
     public function index()
     {
-        return City::all();
-    }
-
-    public function getCountry($country_id)
-    {
-        $country_id = $request->input('country');
-        $cities = City::where('country_id', '=', $country_id)->get();
-        return $cities;
+        //
+        return Country::all();
     }
 
     /**
@@ -44,7 +38,7 @@ class CityCtrl extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
@@ -53,9 +47,10 @@ class CityCtrl extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Country $country)
     {
         //
+        return Country::find(1);
     }
 
     /**
@@ -64,7 +59,7 @@ class CityCtrl extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Country $country)
     {
         //
     }
@@ -87,7 +82,7 @@ class CityCtrl extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Country $country)
     {
         //
     }

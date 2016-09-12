@@ -32,7 +32,7 @@ class User extends Authenticatable
     }
 
     public function rover() {
-        return $this->hasOne('App\Rover');
+        return $this->belongsTo('App\Rover');
     }
 
     public function country() {

@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Country;
 
+use App\City;
+use App\User;
 use App\Http\Requests;
 
-class CountryCtrl extends Controller
+class CityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +17,7 @@ class CountryCtrl extends Controller
      */
     public function index()
     {
-        //
-        return Country::all();
+        return City::all();
     }
 
     /**
@@ -38,7 +38,7 @@ class CountryCtrl extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -49,7 +49,12 @@ class CountryCtrl extends Controller
      */
     public function show($id)
     {
-        //
+        $city_id = $id;
+        $city = City::find($city_id);
+
+        
+
+        return view('search.rovers', compact('city'));
     }
 
     /**
@@ -58,7 +63,7 @@ class CountryCtrl extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(City $city)
     {
         //
     }
@@ -81,7 +86,7 @@ class CountryCtrl extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(City $city)
     {
         //
     }

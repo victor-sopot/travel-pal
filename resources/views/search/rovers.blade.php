@@ -5,12 +5,13 @@
 <div class="container-fluid">
 	<div class="content row">
 		<div class="col-md-6">
-			<h1>{{ $country->name }}</h1>
+			<h1>Rovers in {{ $city->name }}</h1>
 
 			<ul>
-				@foreach ($country->cities as $city)
+				@foreach ($city->rovers as $rover)
 					<li>
-						<a href="{{ route('cities.show', $city->id) }}">{{ $city->name }}</a> ({{ $city->rovers->count() }})
+						{{ $rover->bio }}
+						{{ $rover->user->first_name }}
 					</li>
 				@endforeach
 			</ul>

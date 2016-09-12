@@ -12,7 +12,7 @@ class UsersBookingsSeeder extends Seeder
     public function run()
     {
     	Schema::disableForeignKeyConstraints();
-     	DB::table('users_bookings')->delete();   
+
      	Schema::enableForeignKeyConstraints();
     }
 }
