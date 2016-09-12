@@ -5837,6 +5837,14 @@ section {
 .navbar {
   margin-bottom: 0; }
 
+.navbar-brand {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  text-align: center;
+  margin: auto; }
+
 .pageTitle {
   padding: 0 0 40px 20px;
   text-align: left;

@@ -88,6 +88,7 @@
     @yield('content')
 
     <!-- Scripts -->
+    @yield('scripts')
     @yield('gmaps')
     {{-- <script src="https://npmcdn.com/vue-select@latest"></script> --}}
     <script src="/js/app.js"></script>

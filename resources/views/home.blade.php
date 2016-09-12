@@ -8,8 +8,8 @@
             <h1 class="pageTitle">Begin Your Search</h1>
 
             <form action="/search" method="post">
-            {{ csrf_field() }}
-
+            
+                {{ csrf_field() }}
 
                 <select class="form-control" name="country" id="country">
                     <option value="1">Cyprus</option>
