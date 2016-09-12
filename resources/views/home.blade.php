@@ -7,16 +7,17 @@
 
             <h1 class="pageTitle">Begin Your Search</h1>
 
-            <form action="/search" method="post">
-            
-                {{ csrf_field() }}
+            <form class="form-inline" action="/search" method="post">
+                <div class="form-group">
+                    {{ csrf_field() }}
 
-                <select class="form-control" name="country" id="country">
-                    <option value="1">Cyprus</option>
-                    <option value="2">Bulgaria</option>
-                    <option value="3">Something</option>
-                </select>
-                <button class="btn btn-callout">Search</button>
+                    <select class="form-control" name="country" id="country">
+                        <option value="1">Cyprus</option>
+                        <option value="2">Malta</option>
+                        <option value="3">Bulgaria</option>
+                    </select>
+                    <button class="btn btn-callout">Search</button>
+                </div>
             </form>
         </div>
     </div>

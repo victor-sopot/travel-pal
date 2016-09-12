@@ -13,6 +13,7 @@
 /**** Stylesheet Imports ****/
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 @import url(https://fonts.googleapis.com/css?family=Jura);
+@import url("https://fonts.googleapis.com/css?family=Baloo+Tamma");
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -5824,20 +5825,37 @@ section {
   background-color: #4E5765; }
 
 #search-bar {
-  padding: 15px 0;
+  padding: 20px 0;
   height: 50px;
   width: 100%; }
 
-#search-bar a {
-  padding: 10px 30px;
+#search-bar span {
+  position: relative;
+  top: -10px;
+  left: 10px; }
+
+.search, .search a {
   color: #EDE9E3;
-  border: 1px solid #EDE9E3;
-  border-radius: 2px 2px 2px 2px; }
+  padding: 15px; }
+
+#search-bar a {
+  margin-right: 5px; }
+
+#search-bar a.bg-info {
+  background-color: #5E697C; }
+
+#search-bar a.bg-info:hover, a.bg-info:focus {
+  background-color: #8696B0;
+  text-decoration: none; }
+
+.listed-cities {
+  font-size: 2rem; }
 
 .navbar {
   margin-bottom: 0; }
 
 .navbar-brand {
+  font-weight: 600;
   position: absolute;
   width: 100%;
   left: 0;
@@ -5845,13 +5863,15 @@ section {
   text-align: center;
   margin: auto; }
 
+.navbar-toggle {
+  z-index: 3; }
+
 .pageTitle {
-  padding: 0 0 40px 20px;
-  text-align: left;
-  color: #4E5765;
+  text-align: center;
+  color: #D4DFF4;
   font-size: 5rem;
-  font-weight: 500;
-  text-shadow: 1px 1px 0px white; }
+  font-weight: 600;
+  text-shadow: 2px 2px 0px #4E5765; }
 
 .dropdown-menu > li > a {
   padding: 6px 20px; }

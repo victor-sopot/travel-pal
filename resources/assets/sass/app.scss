@@ -19,6 +19,7 @@
 // Fonts
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 @import url(https://fonts.googleapis.com/css?family=Jura);
+@import url('https://fonts.googleapis.com/css?family=Baloo+Tamma');
 
 // Glyph
 $icon-font-path: '../fonts/';
@@ -91,16 +92,37 @@ section {
 }
 
 #search-bar {
-    padding: 15px 0;
+    padding: 20px 0;
     height: 50px;
     width: 100%;
 }
 
-#search-bar a {
-    padding: 10px 30px;
+#search-bar span {
+    position: relative;
+    top: -10px;
+    left: 10px
+}
+
+.search, .search a {
     color: #EDE9E3;
-    border: 1px solid #EDE9E3;
-    border-radius: 2px 2px 2px 2px;
+    padding: 15px;
+}
+
+#search-bar a {
+    margin-right: 5px;
+}
+
+#search-bar a.bg-info {
+    background-color: #5E697C
+}
+
+#search-bar a.bg-info:hover, a.bg-info:focus {
+    background-color: #8696B0;
+    text-decoration: none;
+}
+
+.listed-cities {
+    font-size: 2rem;
 }
 
 //*** End Main ***//
@@ -112,6 +134,7 @@ section {
 }
 
 .navbar-brand {
+    font-weight: 600;
     position: absolute;
     width: 100%;
     left: 0; top: 0;
@@ -119,16 +142,20 @@ section {
     margin: auto;
 }
 
+.navbar-toggle {
+    z-index:3;
+}
+
 //*** End Navbar ***//
 
 //*** Typography ***//
 .pageTitle {
-    padding: 0 0 40px 20px;
-    text-align: left;
-    color: #4E5765;
+    // padding: 0 0 40px 20px;
+    text-align: center;
+    color: #D4DFF4;
     font-size: 5rem;
-    font-weight: 500;
-    text-shadow: 1px 1px 0px rgb(255, 255, 255);
+    font-weight: 600;
+    text-shadow: 2px 2px 0px #4E5765;
 }
 
 .dropdown-menu > li > a {
@@ -190,7 +217,6 @@ section {
     background: #4CC3D9;
     color: #fff;
 }
-
 
 //*** Media Queries ***//
 

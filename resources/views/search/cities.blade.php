@@ -18,10 +18,19 @@
 
 	<div class="container-fluid search">
 		<div class="row">
-			<div class="col-md-12">
-				<div id="search-bar">
-					<a href="#" class="search-tag">{{ $country->name }} <span class="glyphicon glyphicon-remove"></span></a>
+			<div class="col-md-3">
+				<div class="search-head">
+					<h3><small><a href="{{ url('home') }}">Back</a></small> Searching: </h3>
 				</div>
+			</div>
+			<div class="col-md-4">
+				<div id="search-bar">
+
+					<a href="#" class="bg-info">{{ $country->name }} <span class="glyphicon glyphicon-remove"></span></a>
+				</div>
+			</div>
+			<div class="col-md-5">
+				
 			</div>
 		</div>
 
@@ -31,15 +40,19 @@
 
 @section('content')
 
-<div class="container-fluid">
+<div class="container">
+	<div class="content row">
+		<div class="col-md-12">
+			<h1>Listed Cities</h1>
+		</div>
+	</div>
 	<div class="content row">
 		<div class="col-md-6">
-			<h1>Listed Cities</h1>
 
-			<ul>
+			<ul class="listed-cities list-group">
 				@foreach ($country->cities as $city)
-					<li>
-						<a href="{{ route('cities.show', $city->id) }}">{{ $city->name }}</a> ({{ $city->rovers->count() }})
+					<li class="city-list-item list-group-item">
+						<a href="{{ route('cities.show', $city->id) }}">{{ $city->name }}</a> <span class="badge">{{ $city->rovers->count() }} </span>
 					</li>
 				@endforeach
 			</ul>
