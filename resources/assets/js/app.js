@@ -16,7 +16,6 @@ require('./bootstrap');
 
 Vue.component('DotLoader', DotLoader);
 var DotLoader = require('vue-spinner/src/DotLoader.vue');
-Vue.component('v-select', VueSelect.VueSelect);
 const app = new Vue({
     el: 'body'
 });

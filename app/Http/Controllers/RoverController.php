@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\City;
+use App\Rover;
+use Auth;
 
 class RoverController extends Controller
 {
@@ -25,7 +28,9 @@ class RoverController extends Controller
      */
     public function create()
     {
-        //
+        $cities = City::all();
+
+        return view('rovers.create', compact('cities'));
     }
 
     /**
@@ -36,7 +41,19 @@ class RoverController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $city_id = $request->city_id;
+        $city = City::find($city_id);
+
+        $country_id = $city->country->id;
+        $bio = $request->bio;
+        $rating = 2.5;
+
+        $rover = Rover::create(['city_id' => $city_id, 'country_id' => $country_id, 'bio' => $bio, 'rating' => $rating]);
+
+        $user = Auth::user();
+        $user->rover_id = $rover->id;
+        $user->save();
+        redirect('/rovers/' . $rover->id);
     }
 
     /**
@@ -58,7 +75,7 @@ class RoverController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('rovers.edit');
     }
 
     /**

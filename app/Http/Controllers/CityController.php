@@ -47,12 +47,13 @@ class CityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(City $city, $slug = null)
     {
-        $city_id = $id;
-        $city = City::find($city_id);
+        // $userDetails = User::with('rover')->get();
 
-        return view('search.rovers', compact('city'));
+        return $city->slug == $slug
+            ? view('search.rovers', compact('city'))
+            : redirect($city->url);
     }
 
     /**

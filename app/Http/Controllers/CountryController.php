@@ -47,10 +47,11 @@ class CountryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Country $country)
+    public function show(Country $country, $slug = null)
     {
-        //
-        return Country::find(1);
+        return $country->slug == $slug
+            ? view('search.cities', compact('country'))
+            : redirect($country->url);
     }
 
     /**

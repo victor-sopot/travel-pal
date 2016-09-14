@@ -25,4 +25,21 @@ class Country extends Model
     public function users() {
     	return $this->hasMany('App\User');
     }
+
+    // expose a method, that uses a NAMED route
+    // to dynamically create a URL to this countries details
+    public function getUrlAttribute()
+    {
+        return route('countries.show', ['id' => $this->id, 'slug' => $this->slug]);
+    }
+
+    public function getSlugAttribute()
+    {
+        return str_slug($this->name);
+    }
+
+    public function getImgAttribute()
+    {
+        return str_replace(' ', '-', strtolower($this->name));
+    }
 }

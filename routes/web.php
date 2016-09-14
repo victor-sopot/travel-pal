@@ -11,22 +11,30 @@
 |
 */
 
+Route::get('/', 'HomeController@index');
+
 Route::group(['middleware' => 'auth'], function() {
 
 	Route::get('/home', 'HomeController@index');
 	Route::get('/provider', 'HomeController@provider');
-	Route::post('/search', 'SearchController@country'); // SEARCH
 	Route::get('/profile', 'UserController@profile');
-	Route::get('/', 'HomeController@index');
+	// Route::get('/', 'HomeController@index');
 	Route::resource('bookings', 'BookingsController');
 	Route::resource('users', 'UserController');
-	
-	Route::resource('rovers', 'RoverController');
-	Route::resource('countries', 'CountryController');
 	Route::resource('cities', 'CityController');
+	Route::resource('rovers', 'RoverController');
+	Route::resource('countries', 'CountryController', [
+		'except' => [
+			'show'
+		]
+	]);
 
-	Route::resource('countries.cities', 'CountryCityController');
-	Route::resource('countries.cities.rovers', 'CountryCityRoverController');
+	Route::get('countries/{country}/{slug?}', 'CountryController@show')->name('countries.show');
+
+	Route::get('cities/{city}/{slug?}', 'CityController@show')->name('cities.show');
+
+	Route::get('/pal/register', 'RoverController@create');
+
 });
 
 

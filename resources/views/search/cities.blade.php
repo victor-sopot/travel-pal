@@ -14,36 +14,13 @@
     </style>
 @endsection
 
-@section('searchbar')
-
-	<div class="container-fluid search">
-		<div class="row">
-			<div class="col-md-3">
-				<div class="search-head">
-					<h3><small><a href="{{ url('home') }}">Back</a></small> Searching: </h3>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div id="search-bar">
-
-					<a href="#" class="bg-info">{{ $country->name }} <span class="glyphicon glyphicon-remove"></span></a>
-				</div>
-			</div>
-			<div class="col-md-5">
-				
-			</div>
-		</div>
-
-	</div>
-
-@endsection
-
 @section('content')
-
-<div class="container">
 	<div class="content row">
 		<div class="col-md-12">
-			<h1>Listed Cities</h1>
+			<div class="flag">
+				<img class="img-responsive" src="{{ asset('images/country-flags') }}/{{ $country->img }}.svg" alt="">
+			</div>
+			<h1>{{ $country->name }} <small>Listed Cities</small></h1>
 		</div>
 	</div>
 	<div class="content row">
@@ -63,20 +40,42 @@
             </div>
 		</div>
 	</div>
-</div>
+@endsection
+
+@section('scripts')
 
 @endsection
 
 @section('gmaps')
 	<script>
-	  var map;
-	  function initMap() {
-	    map = new google.maps.Map(document.getElementById('map'), {
-	      center: {lat: -34.397, lng: 150.644},
-	      zoom: 8
-	    });
-	  }
+		var geocoder;
+		var map;
+		function initMap() {
+			var address = '{{ $country->name }}';
+			geocoder = new google.maps.Geocoder();
+			geocoder.geocode( { 'address': address }, function(results, status) {
+				if (status == 'OK') {
+					map.setCenter(results[0].geometry.location);
+					var marker = new google.naps.Marker({
+						map: map,
+						position: results[0].geometry.location
+					});
+				} else {
+					alert('Geocode couldn\'t be coded because ' + status);
+				}
+			});
+			var latlng = new google.maps.LatLng(-34.397, 150.644);
+			var mapOptions = {
+				zoom: 5,
+				center: address
+			}
+			map = new google.maps.Map(document.getElementById('map'), mapOptions);
+		}
+
+		function codeAddress() {
+			
+		}
 	</script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHt6RswAP5SkTi1GME-NujRtBIRhYQ9hg&callback=initMap"
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnlV8WsygIcH1N6C5cMgkJXK_MkG8TKrA&callback=initMap"
 	async defer></script>
 @endsection

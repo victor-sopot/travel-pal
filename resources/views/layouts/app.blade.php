@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    @yield('styles')
     @yield('gmapsstyle')
 
     <!-- Scripts -->
@@ -43,16 +44,19 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/about') }}">What is TravelPal?</a></li>
+                    <li><a href="/"><img src="{{ url('images/home.png') }}" alt=""></a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
+                        <li><a href="{{ url('/pal/register') }}">Become a Pal</a></li>
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
+
                     @else
+                        <li><a href="{{ url('/pal/register') }}">Become a Pal</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->first_name }} <span class="caret"></span>
@@ -81,16 +85,20 @@
         </div>
     </nav>
 
+    <div class="container">
+
     @yield('brand-image')
 
     @yield('searchbar')
 
     @yield('content')
 
+    </div>
+
     <!-- Scripts -->
+   
+    <script src="{{ url('/js/app.js') }}"></script>
     @yield('scripts')
     @yield('gmaps')
-    {{-- <script src="https://npmcdn.com/vue-select@latest"></script> --}}
-    <script src="/js/app.js"></script>
 </body>
 </html>

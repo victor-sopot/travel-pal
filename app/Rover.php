@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Rover extends Model
 {
     //
+    protected $fillable = ['country_id', 'city_id', 'bio', 'rating'];
+
     public function user() {
     	return $this->hasOne('App\User');
     }

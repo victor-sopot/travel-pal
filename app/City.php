@@ -12,6 +12,16 @@ class City extends Model
 	}
 
 	public function country() {
-		return $this->hasOne('App\Country');
+		return $this->belongsTo('App\Country');
+	}
+
+	public function getUrlAttribute()
+	{
+		return route('cities.show', ['id' => $this->id, 'slug' => $this->slug]);
+	}
+
+	public function getSlugAttribute()
+	{
+		return str_slug($this->name);
 	}
 }
