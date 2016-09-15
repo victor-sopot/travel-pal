@@ -1,4 +1,6 @@
 @extends('layouts.app')
+<?php use App\Country;
+$countries = Country::all() ?>
 
 @section('gmapsstyle')
     <style>
@@ -16,16 +18,23 @@
 
 @section('content')
 	<div class="content row">
-		<div class="col-md-12">
+		<div class="col-offset-md-2 col-md-4">
+			<h1 data-name="country">{{ $country->name }}</h1>
+			<datalist id="countries">
+				@foreach ($countries as $value)
+				<option value="{{ $value->name }}">
+				@endforeach
+			</datalist>
+		</div>
+		<div class="col-md-4">
 			<div class="flag">
 				<img class="img-responsive" src="{{ asset('images/country-flags') }}/{{ $country->img }}.svg" alt="">
 			</div>
-			<h1>{{ $country->name }} <small>Listed Cities</small></h1>
 		</div>
 	</div>
 	<div class="content row">
 		<div class="col-md-6">
-
+			<h4>Listed Cities</h4>
 			<ul class="listed-cities list-group">
 				@foreach ($country->cities as $city)
 					<li class="city-list-item list-group-item">
@@ -43,7 +52,66 @@
 @endsection
 
 @section('scripts')
+	<script type="text/javascript">
+		$.fn.inlineEdit = function(replaceWith, connectWith) {
+			$(this).hover(function() {
+			        $(this).addClass('hover');
+			    }, function() {
+			        $(this).removeClass('hover');
+			    });
 
+		    $(this).click(function() {
+
+		        var elem = $(this);
+
+		        elem.hide();
+		        elem.after(replaceWith);
+		        replaceWith.focus();
+
+		        replaceWith.blur(function() {
+
+		            if ($(this).val() != "") {
+		                connectWith.val($(this).val()).change();
+		                elem.text($(this).val());
+		            }
+
+		            $(this).remove();
+		            elem.show();
+		        });
+		    });
+		}
+	</script>
+	<script type="text/javascript">
+		var replaceWith = $('<input name="country" id="country" list="countries"><input type="hidden" name="_token" value="{{ csrf_token() }}">'),
+			connectWith = $('input[name="hiddenField"]');
+
+			$('[data-name="country"]').inlineEdit(replaceWith, connectWith);
+	</script>
+	<script type="text/javascript">
+		$(document).on('focus', 'input#country', function() {
+			$(this).val('');
+		});
+
+		$(document).on('blur', 'input#country', function() {
+			$(this).val('{{ $country->name }}')
+		});
+
+		$(document).on('keypress', 'input#country', function(e) {
+			var key = e.which;
+			if(key == 13) {
+				var country = $(this).val();
+				var url = '{{ $country->plainurl }}' + country;
+				$.ajax({
+					url: '/countries',
+					type: 'post',
+					data: {'countryName' : country, '_token': $('input[name=_token]').val()},
+					success: function(data){
+						window.location = data;
+					}
+				});
+			}
+		});
+	</script>
 @endsection
 
 @section('gmaps')

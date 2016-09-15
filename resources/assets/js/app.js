@@ -27,8 +27,5 @@ Vue.http.get('/provider').then(function(res){
 	console.log(res);
 });
 
-
-
-
 /* Bootstrap */
 $('.dropdown-toggle').dropdown()

@@ -42,4 +42,9 @@ class Country extends Model
     {
         return str_replace(' ', '-', strtolower($this->name));
     }
+
+    public function getPlainUrlAttribute()
+    {
+        return 'http://localhost:8000/countries/';
+    }
 }

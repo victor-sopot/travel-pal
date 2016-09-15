@@ -87,4 +87,13 @@ class CountryController extends Controller
     {
         //
     }
+
+    public function countries(Request $request)
+    {
+            $query = Country::where('name', $request->countryName)->get();
+            foreach ($query as $country) {
+                $response = $country->url;
+            }
+            return $response;
+    }
 }

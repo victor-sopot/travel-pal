@@ -31,15 +31,9 @@ class UserController extends Controller
     public function show($id)
     {
         $user = Auth::user();
-        return view('users.show', compact('user'));
+        return view('users.profile', compact('user'));
         
         // do something
         // reutnr view(users.show)
-    }
-
-    public function profile()
-    {
-        $user = Auth::user();
-        return view('users.profile', compact('user'));
     }
 }

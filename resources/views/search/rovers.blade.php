@@ -11,10 +11,10 @@
 		<div class="col-md-6">
 			<div class="listed-pals list-group">
 				@foreach ($city->rovers as $rover)
-					<a href="#" class="list-group-item">
-						<h4 class="list-group-item-heading">{{ $rover->bio }}</h4>
+					<a href="{{ $rover->url }}" class="list-group-item">
 						@if($rover->user != null)
-							<p>{{ $rover->user->first_name }}</p>
+							<h4 class="list-group-item-heading">{{ $rover->user->first_name }} {{ $rover->user->last_name }}</h4>
+							<p>{{ $rover->bio }}</p>
 						@endif
 					</a>
 				@endforeach

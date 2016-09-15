@@ -9,7 +9,7 @@
 -Navbar
 -Typography
 -Buttons
--Typeahead
+-InlineEdit (JS plugin)
 -Media Queries
 
 
@@ -129,6 +129,23 @@ section {
     font-size: 2rem;
 }
 
+//become a pal form styles
+form#becomePal div{
+    min-height: 100px;
+}
+
+form#becomePal .bg-info, form#becomePal .bg-warning {
+    display:none;
+    padding: 10px;
+}
+
+// data list on welcome page
+dl {
+  background-color: rgba(255,255,255, 0.7);
+  border: 2px solid #C5D0DA;
+  padding: 5px;
+}
+
 //*** End Main ***//
 
 
@@ -195,6 +212,54 @@ section {
 
 .btn-callout:active {
     color: white;
+}
+
+.btn-second {
+    transition: 0.1s all;
+    background-color: #1E7FBD;
+    color: #fff;
+    font-weight: 600;
+    border-bottom-width: 3px;
+    border-color: #124D73;
+}
+
+.btn-second:hover, .btn-second:focus, .btn-second.focus {
+    text-decoration: none;
+    background-color: rgba(139, 195, 74, 1);
+    color: white;
+}
+
+.btn-second:active {
+    color: white;
+}
+
+//*** Inline Edit ***//
+
+input#country { 
+  margin-top: 22px;
+  margin-bottom: 11px;
+  font-size: 36px; 
+  background-color: transparent;
+  border: none; outline: 0;
+}
+
+input[name="hiddenField"] {
+  border: none; outline: 0;
+}
+
+input#country:focus, input#country:active { 
+  outline: none;
+  border: none;
+  background-color: rgba(255,255,255,0.4);
+}
+
+/* Inline Edit */
+[data-name="country"] {
+  // padding: 5px;
+}
+
+[data-name="country"]:hover { 
+  background: rgba(255,255,255,0.4); 
 }
 
 //*** Media Queries ***//

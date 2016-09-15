@@ -64,7 +64,7 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{ url('/profile') }}">My Profile</a>
+                                    <a href="{{ url('/users/profile') }}">My Profile</a>
                                 </li>
                                 <li>
                                     <a href="{{ url('/logout') }}"

@@ -28,6 +28,12 @@ class RoverController extends Controller
      */
     public function create()
     {
+
+        if (Auth::user()->isRover) {
+            $response = "You're already a TravelPal!";
+            return view('errors.rover', compact('response'));
+        }
+
         $cities = City::all();
 
         return view('rovers.create', compact('cities'));
@@ -41,19 +47,27 @@ class RoverController extends Controller
      */
     public function store(Request $request)
     {
-        $city_id = $request->city_id;
-        $city = City::find($city_id);
 
-        $country_id = $city->country->id;
-        $bio = $request->bio;
-        $rating = 2.5;
+        // Auth::user()->rover
+            // redirect('/pal/error');
+            $this->validate($request, [
+                'bio' => 'bail|required|max:255',
+                'tel' => 'bail|required|unique:rovers|digits_between:7,16',
+            ]);
 
-        $rover = Rover::create(['city_id' => $city_id, 'country_id' => $country_id, 'bio' => $bio, 'rating' => $rating]);
+            $city_id = $request->city;
+            $city = City::find($city_id);
+            $country_id = $city->country->id;
+            $bio = $request->bio;
+            $rating = 2.5;
+            $tel = $request->tel;
 
-        $user = Auth::user();
-        $user->rover_id = $rover->id;
-        $user->save();
-        redirect('/rovers/' . $rover->id);
+            $rover = Rover::create(['city_id' => $city_id, 'country_id' => $country_id, 'bio' => $bio, 'rating' => $rating, 'tel' => $tel]);
+
+            $user = Auth::user();
+            $user->rover_id = $rover->id;
+            $user->save();
+            return redirect()->route('pal.welcome');
     }
 
     /**
@@ -64,7 +78,7 @@ class RoverController extends Controller
      */
     public function show(Rover $rover)
     {
-
+        return view('rovers.show', compact('rover'));
     }
 
     /**
@@ -99,5 +113,11 @@ class RoverController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function welcome()
+    {
+        $pal = Auth::user();
+        return view('rovers.welcome', compact('pal'));
     }
 }

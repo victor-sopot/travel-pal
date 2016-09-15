@@ -19,7 +19,6 @@ class HomeController extends Controller
     {
         // extract the list of countries to pass to the view
         $countries = Country::orderBy('name')->get();
-        
         return view('home', compact('countries'));
     }
 
