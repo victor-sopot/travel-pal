@@ -5813,7 +5813,7 @@ body {
 .flag img {
   height: 100px; }
 
-.panel {
+.panel-default {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,207cca+7,207cca+7,207cca+8,2989d8+11,ffffff+11 */
   background: #1e5799;
   /* Old browsers */

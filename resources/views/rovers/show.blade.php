@@ -11,13 +11,11 @@
 			<ul class="list-group">
 				<li class="list-group-item"><a href="{{ route('cities.show', $rover->city->id) }}">{{ $rover->city->name }}</a>, <a href="{{ route('countries.show', $rover->country->id) }}">{{ $rover->country->name }}</a></li>
 			</ul>
-
-			<a href="#" id="startbook" class="btn btn-callout">Book this Pal!</a>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-offset-4 col-md-6">
-			<form id="bookingForm" action="{{ route('booking.store') }}" method="POST">
+			<form id="bookingForm" action="" method="POST">
 				<fieldset>
 					<legend>Booking Form</legend>
 
@@ -49,7 +47,7 @@
 					</div>
 					{{ csrf_field() }}
 					<div class="form-group">
-						<button id="submit" name="submit" class="btn btn-success">Book!</button>
+						<a href="mailto:{{ $rover->user->first_name }}@travelpal.com?subject=I Want You!" class="btn btn-callout">Book this Pal!</a>
 					</div>
 
 
